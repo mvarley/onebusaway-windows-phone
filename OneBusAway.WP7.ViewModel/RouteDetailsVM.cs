@@ -149,7 +149,7 @@ namespace OneBusAway.WP7.ViewModel
             if (stop != null)
             {
                 operationTracker.WaitForOperation("ArrivalsForStop", string.Empty);
-                busServiceModel.ArrivalsForStop(LocationTracker.CurrentLocation, stop);
+                busServiceModel.ArrivalsForStop(LocationTracker.CurrentLocationSafe, stop);
             }
         }
 
