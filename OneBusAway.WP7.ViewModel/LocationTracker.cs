@@ -97,9 +97,6 @@ namespace OneBusAway.WP7.ViewModel
         private Object methodsRequiringLocationLock;
         private List<RequiresKnownLocation> methodsRequiringLocation;
         private AsyncOperationTracker operationTracker;
-#if DEBUG
-        private Timer timer = null;
-#endif
 
         #endregion
 
