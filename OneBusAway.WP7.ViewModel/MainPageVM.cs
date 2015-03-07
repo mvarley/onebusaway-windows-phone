@@ -213,7 +213,6 @@ namespace OneBusAway.WP7.ViewModel
             this.busServiceModel.StopsForRoute_Completed += new EventHandler<EventArgs.StopsForRouteEventArgs>(busServiceModel_StopsForRoute_Completed);
             
             this.appDataModel.Favorites_Changed += new EventHandler<EventArgs.FavoritesChangedEventArgs>(appDataModel_Favorites_Changed);
-            this.appDataModel.Recents_Changed += new EventHandler<EventArgs.FavoritesChangedEventArgs>(appDataModel_Recents_Changed);
 
             this.locationModel.LocationForAddress_Completed += busServiceModel_LocationForAddress_Completed;
         }
@@ -226,7 +225,6 @@ namespace OneBusAway.WP7.ViewModel
             this.busServiceModel.StopsForRoute_Completed -= new EventHandler<EventArgs.StopsForRouteEventArgs>(busServiceModel_StopsForRoute_Completed);
 
             this.appDataModel.Favorites_Changed -= new EventHandler<EventArgs.FavoritesChangedEventArgs>(appDataModel_Favorites_Changed);
-            this.appDataModel.Recents_Changed -= new EventHandler<EventArgs.FavoritesChangedEventArgs>(appDataModel_Recents_Changed);
 
             this.locationModel.LocationForAddress_Completed -= busServiceModel_LocationForAddress_Completed;
 
@@ -476,23 +474,6 @@ namespace OneBusAway.WP7.ViewModel
 
             UIAction(() => Favorites.Clear());
             e.newFavorites.ForEach(favorite => UIAction(() => Favorites.Add(favorite)));
-        }
-            else
-            {
-                ErrorOccured(this, e.error);
-            }
-        }
-
-        void appDataModel_Recents_Changed(object sender, EventArgs.FavoritesChangedEventArgs e)
-        {
-            Debug.Assert(e.error == null);
-
-            if (e.error == null)
-            {
-            e.newFavorites.Sort(new RecentLastAccessComparer());
-
-            UIAction(() => Recents.Clear());
-            e.newFavorites.ForEach(recent => UIAction(() => Recents.Add(recent)));
         }
             else
             {

@@ -48,7 +48,6 @@ namespace OneBusAway.WP7.Model
         #region Events
 
         public event EventHandler<FavoritesChangedEventArgs> Favorites_Changed;
-        public event EventHandler<FavoritesChangedEventArgs> Recents_Changed;
 
         #endregion
 

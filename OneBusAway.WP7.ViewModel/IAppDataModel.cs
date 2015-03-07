@@ -38,9 +38,7 @@ namespace OneBusAway.WP7.ViewModel
     {
 
         event EventHandler<FavoritesChangedEventArgs> Favorites_Changed;
-
-        event EventHandler<FavoritesChangedEventArgs> Recents_Changed;
-
+        
         void AddFavorite(FavoriteRouteAndStop favorite, FavoriteType type);
 
         List<FavoriteRouteAndStop> GetFavorites(FavoriteType type);
