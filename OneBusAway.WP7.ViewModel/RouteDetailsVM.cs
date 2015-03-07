@@ -37,7 +37,6 @@ namespace OneBusAway.WP7.ViewModel
         private List<ArrivalAndDeparture> unfilteredArrivals;
         private Object arrivalsLock;
         private TripService tripService;
-        private bool resultsLoaded;
 
         #endregion
 
@@ -67,7 +66,6 @@ namespace OneBusAway.WP7.ViewModel
             routeFilter = null;
             arrivalsLock = new Object();
             tripService = TripServiceFactory.Singleton.TripService;
-            resultsLoaded = false;
         }
 
         #endregion
@@ -75,23 +73,7 @@ namespace OneBusAway.WP7.ViewModel
         #region Public Properties
 
         public ObservableCollection<ArrivalAndDeparture> ArrivalsForStop { get; private set; }
-
-        private bool noResultsAvailable;
-        public bool NoResultsAvailable
-        {
-            get
-            {
-                if (operationTracker.Loading == true || resultsLoaded == false)
-                {
-                    return false;
-                }
-                else
-                {
-                    return ArrivalsForStop.Count == 0;
-                }
-            }
-        }
- 
+         
         #endregion
 
         #region Public Methods
@@ -139,9 +121,6 @@ namespace OneBusAway.WP7.ViewModel
 
             this.routeFilter = routeFilter;
             RefreshArrivalsForStop(stop);
-
-            // We've sent our first call off, set resultsLoaded to true
-            resultsLoaded = true;
         }
 
         public void RefreshArrivalsForStop(Stop stop)
@@ -369,9 +348,6 @@ namespace OneBusAway.WP7.ViewModel
             this.busServiceModel.ArrivalsForStop_Completed -= new EventHandler<EventArgs.ArrivalsForStopEventArgs>(busServiceModel_ArrivalsForStop_Completed);
 
             this.operationTracker.ClearOperations();
-
-            // Reset resultsLoaded to false when they navigate away from the page
-            resultsLoaded = false;
         }
     }
 
