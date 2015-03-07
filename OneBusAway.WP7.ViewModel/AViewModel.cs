@@ -245,7 +245,7 @@ namespace OneBusAway.WP7.ViewModel
 					isInDesignModeStatic = false;
 					return isInDesignModeStatic.Value;
 				}
-				catch (Exception ex)
+				catch (Exception)
 				{
 					// Toss out any errors we get
 				}
