@@ -39,8 +39,6 @@ namespace OneBusAway.WP7.Test
         private FakeData fakeData = null;
         private Dictionary<FavoriteType, string> fileNames;
 
-        private FavoriteRouteAndStop fakeFavorite;
-
         public AppDataModelTests()
         {
             appDataModel = AppDataModel.Singleton;
