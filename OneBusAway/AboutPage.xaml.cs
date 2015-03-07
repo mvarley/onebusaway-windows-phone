@@ -69,14 +69,14 @@ namespace OneBusAway.WP7.View
         private void AddressBlock_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             WebBrowserTask webBrowserTask = new WebBrowserTask();
-            webBrowserTask.URL = "http://onebusaway.org";
+            webBrowserTask.Uri = new Uri("http://onebusaway.org");
             webBrowserTask.Show();
         }
 
         private void TextBlock_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             WebBrowserTask webBrowserTask = new WebBrowserTask();
-            webBrowserTask.URL = "http://onebusawaywp7.codeplex.com";
+            webBrowserTask.Uri = new Uri("http://onebusawaywp7.codeplex.com");
             webBrowserTask.Show();
         }
     }
